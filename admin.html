@@ -1,0 +1,213 @@
+
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sun City | Admin Panel</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f3f5f9;color:#172033}
+header{background:#123d2b;color:white;padding:20px}
+header h2{margin:0 0 6px}
+header p{margin:0;color:#d5eadc}
+main{max-width:950px;margin:22px auto;padding:0 14px}
+.card{background:white;padding:18px;border-radius:12px;margin-bottom:18px;box-shadow:0 2px 10px #0000000b}
+h3{margin-top:0}
+input,button{font:inherit;padding:12px;border-radius:7px}
+input{width:100%;border:1px solid #d5dbe5;margin:5px 0 12px}
+button{border:0;cursor:pointer;background:#176b45;color:white}
+button:hover{opacity:.9}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.full{grid-column:1/-1}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:18px}
+.stat{background:white;padding:16px;border-radius:10px}
+.stat strong{display:block;font-size:24px;margin-top:8px}
+.item{border-bottom:1px solid #eee;padding:14px 0;display:flex;justify-content:space-between;gap:10px;align-items:center}
+.item small{display:block;color:#657080;margin-top:5px}
+.del{background:#c62828;padding:8px 10px}
+.empty{color:#777;padding:15px 0}
+.notice{font-size:13px;color:#6a5260;line-height:1.6}
+@media(max-width:500px){.grid{grid-template-columns:1fr}.full{grid-column:auto}.stats{grid-template-columns:1fr 1fr}.item{align-items:flex-start}}
+</style>
+</head>
+<body>
+<header>
+  <h2>☀ Sun City</h2>
+  <p>Admin Panel — দোকান পরিচালনা</p>
+</header>
+
+<main>
+  <div class="stats">
+    <div class="stat">মোট পণ্য<strong id="total">0</strong></div>
+    <div class="stat">মোট স্টক<strong id="stock">0</strong></div>
+    <div class="stat">পণ্যের ধরন<strong id="types">0</strong></div>
+  </div>
+
+  <section class="card">
+    <h3>＋ নতুন পণ্য যোগ করুন</h3>
+    <form id="productForm">
+      <div class="grid">
+        <div>
+          <label for="name">পণ্যের নাম</label>
+          <input id="name" required maxlength="100" placeholder="যেমন: চাল">
+        </div>
+        <div>
+          <label for="category">ক্যাটাগরি</label>
+          <input id="category" required maxlength="60" placeholder="যেমন: মুদি">
+        </div>
+        <div>
+          <label for="price">দাম (টাকা)</label>
+          <input id="price" type="number" min="0.01" step="0.01" required placeholder="100">
+        </div>
+        <div>
+          <label for="quantity">স্টকের পরিমাণ</label>
+          <input id="quantity" type="number" min="0" step="1" required placeholder="20">
+        </div>
+        <div class="full">
+          <label for="image">পণ্যের ছবির লিংক (ঐচ্ছিক)</label>
+          <input id="image" type="url" placeholder="https://example.com/image.jpg">
+        </div>
+      </div>
+      <button type="submit">পণ্য যোগ করুন</button>
+    </form>
+  </section>
+
+  <section class="card">
+    <h3>📦 পণ্যের তালিকা</h3>
+    <input id="search" placeholder="পণ্যের নাম দিয়ে খুঁজুন..." aria-label="পণ্য খুঁজুন">
+    <div id="products"></div>
+  </section>
+
+  <section class="card">
+    <h3>⚙️ পরবর্তী কাজ</h3>
+    <p>কাস্টমার অর্ডার, অর্ডার ম্যানেজমেন্ট, লগইন এবং অনলাইন ডেটাবেস এখনো যুক্ত করা হয়নি।</p>
+    <p class="notice">এই ডেমোর তথ্য শুধু এই ব্রাউজারের Local Storage-এ থাকবে। ব্রাউজারের ডেটা মুছে গেলে তথ্য হারাতে পারে। এখানে কোনো পাসওয়ার্ড বা সংবেদনশীল তথ্য রাখবেন না।</p>
+  </section>
+</main>
+
+<script>
+const KEY = "suncity_admin_demo_products_v1";
+const form = document.getElementById("productForm");
+const list = document.getElementById("products");
+const search = document.getElementById("search");
+
+function loadProducts(){
+  try {
+    const data = JSON.parse(localStorage.getItem(KEY) || "[]");
+    return Array.isArray(data) ? data.filter(p =>
+      p && typeof p.id === "string" &&
+      typeof p.name === "string" &&
+      typeof p.category === "string" &&
+      Number.isFinite(p.price) &&
+      Number.isFinite(p.quantity)
+    ) : [];
+  } catch {
+    return [];
+  }
+}
+
+let products = loadProducts();
+
+function saveProducts(){
+  try {
+    localStorage.setItem(KEY, JSON.stringify(products));
+    return true;
+  } catch {
+    alert("তথ্য সংরক্ষণ করা যায়নি। ব্রাউজারের স্টোরেজ পরীক্ষা করুন।");
+    return false;
+  }
+}
+
+function render(){
+  document.getElementById("total").textContent = products.length;
+  document.getElementById("stock").textContent =
+    products.reduce((sum,p)=>sum+p.quantity,0);
+  document.getElementById("types").textContent =
+    new Set(products.map(p=>p.category)).size;
+
+  list.replaceChildren();
+  const query = search.value.trim().toLowerCase();
+  const shown = products.filter(p =>
+    (p.name+" "+p.category).toLowerCase().includes(query)
+  );
+
+  if(!shown.length){
+    const empty = document.createElement("p");
+    empty.className = "empty";
+    empty.textContent = products.length ? "কোনো মিল পাওয়া যায়নি।" : "এখনো কোনো পণ্য যোগ করা হয়নি।";
+    list.appendChild(empty);
+    return;
+  }
+
+  shown.forEach(p=>{
+    const row = document.createElement("div");
+    row.className = "item";
+    const info = document.createElement("div");
+    const title = document.createElement("strong");
+    title.textContent = p.name;
+    const details = document.createElement("small");
+    details.textContent = p.category+" · ৳"+p.price+" · স্টক: "+p.quantity;
+    info.append(title,details);
+
+    const del = document.createElement("button");
+    del.className = "del";
+    del.textContent = "মুছুন";
+    del.addEventListener("click",()=>{
+      if(!confirm("এই পণ্যটি মুছে ফেলবেন?")) return;
+      const previous = products;
+      products = products.filter(item=>item.id!==p.id);
+      if(!saveProducts()) products = previous;
+      render();
+    });
+
+    row.append(info,del);
+    list.appendChild(row);
+  });
+}
+
+form.addEventListener("submit",e=>{
+  e.preventDefault();
+  const name = document.getElementById("name").value.trim();
+  const category = document.getElementById("category").value.trim();
+  const price = Number(document.getElementById("price").value);
+  const quantity = Number(document.getElementById("quantity").value);
+  const image = document.getElementById("image").value.trim();
+
+  if(!name || !category || !Number.isFinite(price) || price<=0 ||
+     !Number.isSafeInteger(quantity) || quantity<0){
+    alert("পণ্যের নাম, ক্যাটাগরি, সঠিক দাম ও স্টক দিন।");
+    return;
+  }
+
+  if(image){
+    try {
+      const url = new URL(image);
+      if(url.protocol!=="https:" && url.protocol!=="http:") throw Error();
+    } catch {
+      alert("ছবির জন্য সঠিক HTTP বা HTTPS লিংক দিন।");
+      return;
+    }
+  }
+
+  const product = {
+    id: (crypto.randomUUID ? crypto.randomUUID() : Date.now()+"-"+Math.random()),
+    name,category,price,quantity,image
+  };
+
+  products.unshift(product);
+  if(!saveProducts()){
+    products = products.filter(p=>p.id!==product.id);
+    return;
+  }
+
+  form.reset();
+  render();
+  alert("পণ্যটি এই ব্রাউজারে সংরক্ষিত হয়েছে।");
+});
+
+search.addEventListener("input",render);
+render();
+</script>
+</body>
+</html>
