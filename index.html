@@ -503,5 +503,104 @@ if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.
   window.addEventListener('load', () => { navigator.serviceWorker.register('sw.js').catch(() => {}); });
 }
 </script>
+ <script>
+/* Suncity install strip: shows a small "Get the app" bar on phones */
+(function () {
+  var KEY = 'sc_install_hide';
+  function hiddenForever() { try { return JSON.parse(localStorage.getItem(KEY)) === true; } catch (e) { return false; } }
+  function standalone() { return (window.matchMedia && matchMedia('(display-mode: standalone)').matches) || navigator.standalone || !!window.Capacitor; }
+  if (hiddenForever() || standalone()) return;
+
+  var ua = navigator.userAgent;
+  var ios = /iphone|ipad|ipod/i.test(ua);
+  var inApp = /FBAN|FBAV|FB_IAB|Instagram|Messenger/i.test(ua);
+  function bn() { try { return JSON.parse(localStorage.getItem('sc_lang')) === 'BN'; } catch (e) { return false; } }
+  function T(en, b) { return bn() ? b : en; }
+
+  var css = document.createElement('style');
+  css.textContent =
+    '.istrip{display:flex;align-items:center;gap:10px;background:var(--soft,#FFF0E4);color:var(--ink,#17233A);border-bottom:1px solid var(--line,#E8EAF0);padding:9px 14px;font-size:13px;line-height:1.3;font-family:inherit}' +
+    '.istrip img{width:34px;height:34px;border-radius:9px;flex:none}' +
+    '.istrip .itx{flex:1;min-width:0}.istrip .itx b{display:block;font-size:13px}.istrip .itx span{color:var(--muted,#6E7B8E);font-size:12px}' +
+    '.istrip .ibtn{background:var(--orange,#FF6A00);color:#fff;border:0;border-radius:99px;padding:7px 14px;font-weight:700;font-size:12px;white-space:nowrap;cursor:pointer;font-family:inherit}' +
+    '.istrip .ix{background:none;border:0;font-size:20px;line-height:1;color:var(--muted,#6E7B8E);padding:2px 4px;cursor:pointer}' +
+    '.ist-ov{position:fixed;inset:0;z-index:95;background:rgba(0,0,0,.5);display:flex;align-items:flex-start;justify-content:center;padding:70px 12px 12px}' +
+    '.ist-pn{width:100%;max-width:406px;max-height:78vh;overflow:auto;background:var(--card,#fff);color:var(--ink,#17233A);border:1px solid var(--line,#E8EAF0);border-radius:18px;padding:14px;display:flex;flex-direction:column;gap:10px;font-size:14px}' +
+    '.ist-pn .hd{display:flex;align-items:center;justify-content:space-between}.ist-pn .hd b{font-size:17px}' +
+    '.ist-pn .cl{background:var(--chip,#F1F4F8);color:inherit;border:0;border-radius:99px;padding:7px 14px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit}' +
+    '.ist-pn .wn{background:#FFE9EA;color:#9B1C20;border-radius:10px;padding:8px 10px;font-size:12px}' +
+    '.ist-pn ol{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:8px}' +
+    '@media (min-width:900px){.istrip{display:none}}';
+  document.head.appendChild(css);
+
+  var strip = document.createElement('div');
+  strip.className = 'istrip';
+
+  function remove() { if (strip.parentNode) strip.parentNode.removeChild(strip); }
+  function hideForever() { try { localStorage.setItem(KEY, 'true'); } catch (e) {} remove(); }
+
+  function openHow() {
+    var steps = ios
+      ? [T('Open this page in Safari.', 'এই পেজটা Safari তে খুলুন।'),
+         T('Tap the Share button (a square with an arrow) at the bottom.', 'নিচের শেয়ার বাটনে (তীর সহ চার কোনা) চাপুন।'),
+         T('Scroll down and tap "Add to Home Screen".', 'নিচে স্ক্রল করে "Add to Home Screen" এ চাপুন।'),
+         T('Tap "Add". The Suncity icon appears on your home screen.', '"Add" চাপুন। হোম স্ক্রিনে সানসিটি আইকন চলে আসবে।')]
+      : [T('Open this page in Chrome.', 'এই পেজটা Chrome এ খুলুন।'),
+         T('Tap the ⋮ menu at the top right.', 'ওপরে ডানের ⋮ মেনুতে চাপুন।'),
+         T('Tap "Install app" or "Add to Home screen".', '"Install app" বা "Add to Home screen" এ চাপুন।'),
+         T('Tap "Install". The Suncity icon appears on your home screen.', '"Install" চাপুন। হোম স্ক্রিনে সানসিটি আইকন চলে আসবে।')];
+    var ov = document.createElement('div');
+    ov.className = 'ist-ov';
+    var html = '<div class="ist-pn"><div class="hd"><b></b><button class="cl"></button></div>';
+    if (inApp) html += '<div class="wn"></div>';
+    html += '<ol>' + steps.map(function () { return '<li></li>'; }).join('') + '</ol></div>';
+    ov.innerHTML = html;
+    ov.querySelector('b').textContent = T('Install Suncity', 'সানসিটি ইনস্টল করুন');
+    ov.querySelector('.cl').textContent = T('Close', 'বন্ধ');
+    if (inApp) ov.querySelector('.wn').textContent = T('You are inside the Facebook / Messenger browser. Tap the ⋮ or ⋯ menu and choose "Open in browser" first.', 'আপনি ফেসবুক/মেসেঞ্জারের ব্রাউজারে আছেন। আগে ⋮ বা ⋯ মেনু চেপে "Open in browser" বেছে নিন।');
+    var lis = ov.querySelectorAll('li');
+    for (var i = 0; i < lis.length; i++) lis[i].textContent = steps[i];
+    function close() { if (ov.parentNode) ov.parentNode.removeChild(ov); }
+    ov.addEventListener('click', function (e) { if (e.target === ov) close(); });
+    ov.querySelector('.cl').addEventListener('click', close);
+    document.body.appendChild(ov);
+  }
+
+  function install() {
+    var e = window.__bip;
+    if (!e) { openHow(); return; }
+    e.prompt();
+    Promise.resolve(e.userChoice).catch(function () {}).then(function () { window.__bip = null; render(); });
+  }
+
+  var lastLang = null;
+  function render() {
+    lastLang = bn();
+    var ready = !!window.__bip;
+    strip.innerHTML = '<img src="icon-192.png" alt=""><div class="itx"><b></b><span></span></div><button class="ibtn"></button><button class="ix" aria-label="Close">×</button>';
+    strip.querySelector('b').textContent = T('Get the Suncity app', 'সানসিটি অ্যাপ নিন');
+    strip.querySelector('span').textContent = T('Opens full screen from your home screen', 'হোম স্ক্রিন থেকে ফুল স্ক্রিনে খোলে');
+    var btn = strip.querySelector('.ibtn');
+    btn.textContent = ready ? T('Install', 'ইনস্টল') : T('How?', 'কীভাবে?');
+    btn.addEventListener('click', ready ? install : openHow);
+    strip.querySelector('.ix').addEventListener('click', hideForever);
+  }
+
+  window.addEventListener('bip', render);
+  window.addEventListener('appinstalled', hideForever);
+
+  function mount() {
+    var h = document.querySelector('header');
+    if (!h) return false;
+    if (strip.parentNode !== h.parentNode || strip.previousElementSibling !== h) h.insertAdjacentElement('afterend', strip);
+    return true;
+  }
+  render();
+  var tries = 0;
+  var iv = setInterval(function () { if (mount() || ++tries > 80) clearInterval(iv); }, 250);
+  // keep the language of the strip in step with the app language
+  setInterval(function () { if (bn() !== lastLang && strip.parentNode) render(); }, 1000);
+})();
+</script>
 </body>
 </html>
