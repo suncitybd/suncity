@@ -4,23 +4,43 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0F2340">
-<title>Suncity</title>
-<meta name="description" content="Suncity: beauty, baby care, herbal and personal care products delivered to your door. Cash on delivery.">
-<link rel="manifest" href="manifest.webmanifest">
-<link rel="icon" type="image/png" href="favicon.png">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="Suncity">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>Suncity — বিশ্বস্ত অনলাইন শপ</title>
+
+<!-- ===== SEO START ===== -->
+<meta name="description" content="Suncity — বিশ্বস্ত অনলাইন শপ। বেবি কেয়ার, ফেমিনিন কেয়ার, হারবাল ও পার্সোনাল কেয়ার পণ্য সাশ্রয়ী দামে। ক্যাশ অন ডেলিভারি।">
+<meta name="keywords" content="Suncity, online shop bd, baby care, feminine care, herbal, personal care, Bangladesh">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://suncity.com.bd/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Suncity">
-<meta property="og:title" content="Suncity">
-<meta property="og:description" content="Beauty, baby care, herbal and personal care products delivered to your door. Cash on delivery.">
-<meta property="og:image" content="https://suncitybd.github.io/suncity/og-image.jpg">
-<meta property="og:url" content="https://suncitybd.github.io/suncity/">
+<meta property="og:title" content="Suncity — বিশ্বস্ত অনলাইন শপ">
+<meta property="og:description" content="বেবি কেয়ার, ফেমিনিন কেয়ার, হারবাল ও পার্সোনাল কেয়ার পণ্য সাশ্রয়ী দামে। ক্যাশ অন ডেলিভারি।">
+<meta property="og:image" content="https://suncity.com.bd/og-image.jpg">
+<meta property="og:url" content="https://suncity.com.bd/">
 <meta name="twitter:card" content="summary_large_image">
-<script>window.addEventListener('beforeinstallprompt',function(e){e.preventDefault();window.__bip=e;window.dispatchEvent(new Event('bip'))});window.addEventListener('appinstalled',function(){window.__bip=null;window.dispatchEvent(new Event('bip'))});</script>
+<meta name="twitter:title" content="Suncity — বিশ্বস্ত অনলাইন শপ">
+<meta name="twitter:description" content="বেবি কেয়ার, ফেমিনিন কেয়ার, হারবাল ও পার্সোনাল কেয়ার পণ্য সাশ্রয়ী দামে।">
+<meta name="twitter:image" content="https://suncity.com.bd/og-image.jpg">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Suncity",
+  "url": "https://suncity.com.bd/",
+  "logo": "https://suncity.com.bd/logo.png",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+8801577172585",
+    "contactType": "customer service",
+    "areaServed": "BD",
+    "availableLanguage": ["Bengali", "English"]
+  }
+}
+</script>
+<!-- ===== SEO END ===== -->
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -100,40 +120,66 @@ nav button.on{color:var(--orange)}nav button span.i{font-size:20px}
 .gallery-thumbs::-webkit-scrollbar{display:none}
 .gallery-thumb{width:58px;height:58px;flex:0 0 58px;border:2px solid transparent;border-radius:10px;overflow:hidden;background:#fff;padding:0}
 .gallery-thumb.active{border-color:var(--orange)}.gallery-thumb img{width:100%;height:100%;object-fit:contain}
-.lightbox{position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.96);display:flex;align-items:center;justify-content:center;touch-action:pan-y}
-.lightbox img{max-width:100%;max-height:100%;object-fit:contain;user-select:none;-webkit-user-drag:none;touch-action:none;transform-origin:center center}
-.lightbox-close{position:absolute;top:calc(14px + env(safe-area-inset-top));right:16px;z-index:3;color:#fff;background:rgba(255,255,255,.16);border-radius:50%;width:42px;height:42px;font-size:25px}
-.lightbox-count{position:absolute;top:calc(20px + env(safe-area-inset-top));left:0;right:0;text-align:center;color:#fff;font-size:13px;pointer-events:none}
-.lightbox-arrow{position:absolute;top:50%;transform:translateY(-50%);color:#fff;background:rgba(255,255,255,.16);border-radius:50%;width:40px;height:40px;font-size:24px;z-index:2}
+.lightbox{position:fixed;inset:0;z-index:9999;background:#fff;display:flex;align-items:center;justify-content:center;touch-action:none;overflow:hidden}
+:root[data-theme=dark] .lightbox{background:#000}
+.lightbox-img-wrap{width:100%;height:100%;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.lightbox img{width:100%;height:100%;object-fit:contain;user-select:none;-webkit-user-drag:none;touch-action:none;transform-origin:center center;transition:transform .05s linear}
+.lightbox-close{position:absolute;top:calc(14px + env(safe-area-inset-top));left:16px;z-index:3;color:var(--ink);background:var(--chip);border-radius:50%;width:40px;height:40px;font-size:24px;display:flex;align-items:center;justify-content:center}
+:root[data-theme=dark] .lightbox-close{color:#fff;background:rgba(255,255,255,.16)}
+.lightbox-count{position:absolute;top:calc(20px + env(safe-area-inset-top));left:0;right:0;text-align:center;color:var(--ink);font-size:14px;font-weight:700;pointer-events:none;z-index:3}
+:root[data-theme=dark] .lightbox-count{color:#fff}
+.lightbox-thumbs{position:absolute;bottom:calc(20px + env(safe-area-inset-bottom));left:0;right:0;display:flex;justify-content:center;gap:8px;z-index:3}
+.lightbox-thumbs img{width:44px;height:44px;object-fit:contain;border-radius:8px;border:2px solid transparent;background:#fff;padding:2px;transition:.2s;opacity:.6;cursor:pointer}
+.lightbox-thumbs img.active{border-color:var(--orange);opacity:1;transform:scale(1.1)}
+.lightbox-arrow{position:absolute;top:50%;transform:translateY(-50%);color:var(--ink);background:var(--chip);border-radius:50%;width:40px;height:40px;font-size:24px;z-index:3}
+:root[data-theme=dark] .lightbox-arrow{color:#fff;background:rgba(255,255,255,.16)}
 .lightbox-arrow.prev{left:10px}.lightbox-arrow.next{right:10px}
 .seg{display:inline-flex;background:var(--chip);border-radius:99px;padding:3px}.seg button{padding:5px 12px;border-radius:99px;font-size:12px;font-weight:700;color:var(--muted)}.seg button.on{background:var(--card);color:var(--ink)}
-
-/* website + app layout */
-.hwrap{display:flex;flex-wrap:wrap;align-items:center;gap:10px;max-width:1200px;margin:0 auto}
-.hwrap .logo{order:1;flex:1}.hwrap .hact{order:2}.hwrap .search{order:3;flex:1 0 100%;margin-top:0}.hwrap .topnav{display:none}
-.narrow{max-width:640px;margin:0 auto}
-.pd-top{display:block}.sims{display:block}
-.topnav button{position:relative;color:#fff;font-weight:700;font-size:14px;padding:8px 14px;border-radius:99px;opacity:.82}.topnav button.on{background:rgba(255,255,255,.16);opacity:1}.topnav .badge{top:-3px;left:auto;right:-4px}
-.installbox{display:flex;align-items:center;justify-content:space-between;gap:10px}
-@media (min-width:900px){
- .app{max-width:none}
- header{padding-left:28px;padding-right:28px}
- .hwrap{flex-wrap:nowrap;gap:24px}
- .hwrap .logo{order:1;flex:0 0 auto;font-size:26px}.hwrap .search{order:2;flex:1 1 auto}.hwrap .topnav{order:3;display:flex;gap:4px}.hwrap .hact{order:4}
- nav{display:none}
- main{width:100%;max-width:1200px;margin:0 auto;padding:22px 28px 48px}
- .grid{grid-template-columns:repeat(4,1fr);gap:18px}
- .cats{gap:18px}.cat{flex:0 0 100px;font-size:13px}.cat .c{width:92px;height:92px;border-radius:22px}
- .product-row{gap:16px}.product-row .card{width:220px;min-width:220px;flex:0 0 220px;border-radius:18px}.product-row .pb{padding:10px}.product-row .pn{font-size:14px;min-height:36px}.product-row .pr{font-size:16px}.product-row .add{font-size:12px}
- .pn{font-size:14px}.pr{font-size:17px}
- h3.sec{font-size:21px}
- .pd-top{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:36px;align-items:start}
- .pd-info h1{font-size:30px!important;margin-top:0!important}
- .sims{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.sims .sim{margin-bottom:0}
- .wa{right:28px;bottom:28px}
- .toast{bottom:40px}
- .notif{padding-top:80px}
-}
+/* ===== NEW FEATURES CSS ===== */
+.stars{display:inline-flex;gap:2px;font-size:14px;color:#FFB800;line-height:1}
+.stars .off{color:var(--line);background:none;padding:0;position:static;border-radius:0}
+.rev-summary{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);margin-bottom:8px}
+.rev-summary .big-num{font-size:36px;font-weight:800;line-height:1}
+.rev-item{border-top:1px solid var(--line);padding:10px 0;font-size:13px}
+.rev-item:first-child{border-top:0}
+.rev-item .rev-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:3px}
+.rev-item .rev-name{font-weight:700}
+.rev-item .rev-date{font-size:11px;color:var(--muted)}
+.rev-item .rev-text{margin-top:4px;line-height:1.5;white-space:pre-wrap}
+.rev-form .star-pick{display:flex;gap:6px;font-size:30px;color:var(--line);margin:8px 0;cursor:pointer}
+.rev-form .star-pick span.on{color:#FFB800}
+.wish-btn{position:absolute;right:5px;top:5px;z-index:4;width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.92);display:flex;align-items:center;justify-content:center;font-size:16px;box-shadow:0 1px 5px rgba(0,0,0,.15);padding:0}
+.wish-btn.on{color:var(--red)}
+.coupon-box{display:flex;gap:8px;margin-top:8px}
+.coupon-box input{flex:1;margin-top:0}
+.coupon-box button{padding:0 16px;background:var(--navy);color:#fff;border-radius:12px;font-weight:700;font-size:13px}
+.coupon-ok{background:#E7F7EF;color:#0C6A3D;border-radius:10px;padding:8px 10px;font-size:12px;margin-top:8px;display:flex;justify-content:space-between;align-items:center}
+/* ===== SPIN OFFER ===== */
+.spin-btn{width:100%;display:flex;align-items:center;gap:12px;margin-top:14px;padding:12px 16px;border-radius:18px;background:linear-gradient(135deg,#FF6A00,#E5484D);color:#fff;font-size:26px;text-align:left}
+.spin-btn span{display:flex;flex-direction:column;font-size:15px;line-height:1.25}.spin-btn small{font-size:12px;opacity:.9}
+.spin-modal{position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.75);display:flex;align-items:center;justify-content:center;padding:20px}
+.spin-content{background:var(--card);border-radius:24px;padding:24px;text-align:center;max-width:340px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,.3);animation:popIn .3s ease}
+@keyframes popIn{0%{transform:scale(.7);opacity:0}100%{transform:scale(1);opacity:1}}
+.wheel-container{position:relative;width:250px;height:250px;margin:20px auto}
+.wheel{width:100%;height:100%;border-radius:50%;border:8px solid var(--navy);position:relative;overflow:hidden;transition:transform 4s cubic-bezier(.17,.67,.12,.99)}
+.wheel-pointer{position:absolute;top:-15px;left:50%;transform:translateX(-50%);font-size:32px;z-index:10;filter:drop-shadow(0 2px 4px rgba(0,0,0,.3))}
+.wl{position:absolute;left:50%;top:50%;width:70px;margin-left:-35px;margin-top:-9px;text-align:center;font-size:11px;font-weight:800;color:#fff;line-height:1.1;text-shadow:0 1px 2px rgba(0,0,0,.35)}
+.wheel-hub{position:absolute;left:50%;top:50%;width:34px;height:34px;margin:-17px 0 0 -17px;border-radius:50%;background:#fff;border:4px solid var(--navy);z-index:5}
+.spin-res{margin:6px 0 12px;font-weight:700;font-size:16px}
+/* ===== PREMIUM POLISH + FLASH ===== */
+.bannerimg,.banner{box-shadow:0 10px 28px rgba(15,35,64,.14)}
+h3.sec{position:relative;padding-left:12px}
+h3.sec::before{content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);width:4px;height:18px;border-radius:4px;background:var(--orange)}
+h3.sec button{background:var(--soft);padding:4px 12px;border-radius:99px}
+.card{box-shadow:0 4px 14px rgba(15,35,64,.07)}
+.off{font-size:12px;font-weight:800;padding:3px 9px;box-shadow:0 2px 6px rgba(255,106,0,.35)}
+.pr{font-size:16px;letter-spacing:-.2px}
+nav{box-shadow:0 -10px 30px rgba(15,35,64,.12)}
+nav button.on::after{content:'';width:5px;height:5px;border-radius:50%;background:var(--orange);margin-top:2px}
+.catrow{display:flex;gap:12px;align-items:flex-start;margin-top:14px}.catrow>.cat{flex:0 0 76px}.catrow>.cats{flex:1;min-width:0}
+.ftimer{margin-left:8px;background:var(--navy);color:#fff;border-radius:8px;padding:3px 8px;font-size:13px;font-weight:700;font-variant-numeric:tabular-nums}
+.sk{background:linear-gradient(90deg,var(--line) 25%,var(--chip) 50%,var(--line) 75%);background-size:200% 100%;animation:shim 1.2s infinite;border-radius:14px}
+@keyframes shim{0%{background-position:200% 0}100%{background-position:-200% 0}}
 </style>
 </head>
 <body>
@@ -143,7 +189,7 @@ nav button.on{color:var(--orange)}nav button span.i{font-size:20px}
 <script src="https://cdn.jsdelivr.net/npm/htm@3.1.1/dist/htm.umd.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
 <script>
-const { useState, useEffect, useMemo, useRef } = React;
+const { useState, useEffect, useMemo, useRef, useCallback } = React;
 const toStyle = (s) => { const o = {}; String(s).split(';').forEach((d) => { const i = d.indexOf(':'); if (i < 0) return; const k = d.slice(0, i).trim(), v = d.slice(i + 1).trim(); if (!k) return; o[k.startsWith('--') ? k : k.replace(/-([a-z])/g, (_, c) => c.toUpperCase())] = v; }); return o; };
 const h = (type, props, ...kids) => React.createElement(type, props && typeof props.style === 'string' ? { ...props, style: toStyle(props.style) } : props, ...kids);
 const html = htm.bind(h);
@@ -177,13 +223,130 @@ function Img({ src, fallback }) {
   return src && !bad ? html`<img src=${src} loading="lazy" onError=${() => setBad(true)} alt="" />` : fallback;
 }
 
+// ===== NEW: Stars component =====
+function Stars({ value, size }) {
+  const v = Math.round(Number(value) || 0);
+  return html`<span class="stars" style=${size ? 'font-size:' + size : ''}>${[1,2,3,4,5].map((i) => html`<span key=${i} class=${i <= v ? '' : 'off'}>★</span>`)}</span>`;
+}
+
+// ===== NEW: ReviewSection =====
+function ReviewSection({ t, productId, user, orders }) {
+  const [rating, setRating] = useState(5);
+  const [comment, setComment] = useState('');
+  const [err, setErr] = useState(''); const [busy, setBusy] = useState(false); const [ok, setOk] = useState('');
+  const [list, setList] = useState([]); const [summary, setSummary] = useState({ avg_rating: 0, total: 0 });
+  const [eligible, setEligible] = useState(null);
+
+  const load = useCallback(async () => {
+    const { data } = await sb.from('reviews').select('*').eq('product_id', productId).order('created_at', { ascending: false }).limit(20);
+    setList(data || []);
+    const { data: r } = await sb.rpc('product_rating', { p_product: productId });
+    if (r && r[0]) setSummary(r[0]);
+  }, [productId]);
+  useEffect(() => { load(); }, [load]);
+
+  useEffect(() => {
+    if (!user) { setEligible(null); return; }
+    (async () => {
+      const { data: o } = await sb.from('orders').select('id').eq('user_id', user.id).eq('status', 'delivered').limit(20);
+      const ids = (o || []).map((x) => x.id);
+      if (!ids.length) { setEligible(null); return; }
+      const { data: rv } = await sb.from('reviews').select('id,order_id').eq('product_id', productId).eq('user_id', user.id);
+      const used = new Set((rv || []).map((x) => x.order_id));
+      const free = ids.find((id) => !used.has(id));
+      setEligible(free || null);
+    })();
+  }, [user && user.id, productId, ok]);
+
+  async function submit() {
+    setErr(''); setOk('');
+    if (!user) { setErr(t('Please sign in first', 'আগে সাইন ইন করুন')); return; }
+    if (!eligible) { setErr(t('You can review after delivery', 'ডেলিভারির পর রিভিউ দিতে পারবেন')); return; }
+    setBusy(true);
+    const { error } = await sb.from('reviews').insert({ product_id: productId, user_id: user.id, order_id: eligible, rating, comment });
+    setBusy(false);
+    if (error) return setErr(error.message);
+    setComment(''); setOk(t('Thanks for your review!', 'রিভিউ দেওয়ার জন্য ধন্যবাদ!')); setEligible(null); load();
+  }
+
+  return html`<div>
+    <h3 class="sec">${t('Reviews', 'রিভিউ')} ${summary.total ? html`<span class="muted" style="font-weight:400">(${summary.total})</span>` : null}</h3>
+    ${summary.total ? html`<div class="box" style="padding:12px"><div class="rev-summary"><div class="big-num">${summary.avg_rating}</div><div><${Stars} value=${summary.avg_rating} size="16px" /><div class="muted">${summary.total} ${t('reviews', 'রিভিউ')}</div></div></div>
+      ${list.map((r) => html`<div class="rev-item" key=${r.id}><div class="rev-head"><span class="rev-name">${t('Customer', 'গ্রাহক')}</span><span class="rev-date">${fmtDate(r.created_at)}</span></div><${Stars} value=${r.rating} />${r.comment ? html`<div class="rev-text">${r.comment}</div>` : null}</div>`)}</div>`
+      : html`<p class="muted">${t('No reviews yet. Be the first!', 'এখনো কোনো রিভিউ নেই। প্রথম হোন!')}</p>`}
+    ${eligible ? html`<div class="box rev-form"><b>${t('Write a review', 'রিভিউ লিখুন')}</b>
+      <div class="star-pick">${[1,2,3,4,5].map((i) => html`<span key=${i} class=${i <= rating ? 'on' : ''} onClick=${() => setRating(i)}>★</span>`)}</div>
+      <textarea class="in" rows="3" placeholder=${t('Your review (optional)', 'আপনার মতামত (ঐচ্ছিক)')} value=${comment} onInput=${(e) => setComment(e.target.value)}></textarea>
+      ${err ? html`<div class="err">${err}</div>` : null}${ok ? html`<div class="ok">${ok}</div>` : null}
+      <button class="btn" style="margin-top:10px" disabled=${busy} onClick=${submit}>${busy ? '…' : t('Submit review', 'রিভিউ জমা দিন')}</button></div>` : null}
+  </div>`;
+}
+
+// ===== NEW: Wishlist hook =====
+function useWishlist(user) {
+  const [list, setList] = useState([]);
+  const load = useCallback(async () => {
+    if (!user) { setList([]); return; }
+    const { data } = await sb.from('wishlist').select('product_id').eq('user_id', user.id);
+    setList((data || []).map((x) => x.product_id));
+  }, [user && user.id]);
+  useEffect(() => { load(); }, [load]);
+  const has = (id) => list.includes(id);
+  async function toggle(id) {
+    if (!user) return false;
+    if (has(id)) {
+      await sb.from('wishlist').delete().eq('user_id', user.id).eq('product_id', id);
+      setList(list.filter((x) => x !== id));
+    } else {
+      await sb.from('wishlist').insert({ user_id: user.id, product_id: id });
+      setList([...list, id]);
+    }
+    return true;
+  }
+  return { list, has, toggle, reload: load };
+}
+
+function SpinModal({ t, lang, offer, prior, onClose, onSpin }) {
+  const slices = offer.slices, n = slices.length, seg = 360 / n;
+  const [rot, setRot] = useState(0); const [spinning, setSpinning] = useState(false); const [res, setRes] = useState(prior || null); const [msg, setMsg] = useState('');
+  const colors = ['#FF6A00', '#0F2340', '#0C9A5C', '#E5484D', '#7C3AED', '#0EA5E9', '#F59E0B', '#DB2777'];
+  const grad = 'conic-gradient(' + slices.map((s, i) => colors[i % colors.length] + ' ' + (i * seg) + 'deg ' + ((i + 1) * seg) + 'deg').join(',') + ')';
+  async function spin() {
+    if (spinning || res) return;
+    setMsg(''); setSpinning(true);
+    const out = await onSpin();
+    if (!out || out.error) { setSpinning(false); setMsg((out && out.error) || t('Something went wrong', 'কিছু একটা সমস্যা হয়েছে')); return; }
+    if (out.already) { setSpinning(false); setRes({ pct: out.pct, label: out.label }); return; }
+    const w = Math.min(Math.max(Number(out.index) || 0, 0), n - 1);
+    setRot(360 * 6 + (360 - (w * seg + seg / 2)) + (Math.random() - 0.5) * seg * 0.6);
+    setTimeout(() => { setSpinning(false); setRes({ pct: out.pct, label: out.label }); }, 4200);
+  }
+  return html`<div class="spin-modal" onClick=${() => { if (!spinning) onClose(); }}><div class="spin-content" onClick=${(e) => e.stopPropagation()}>
+    <h2 style="margin:0">${(lang === 'BN' && offer.title_bn) || offer.title || 'Spin & Win'}</h2>
+    <div class="wheel-container"><div class="wheel-pointer">▼</div>
+      <div class="wheel" style=${{ background: grad, transform: 'rotate(' + rot + 'deg)' }}>${slices.map((s, i) => html`<span key=${i} class="wl" style=${{ transform: 'rotate(' + (i * seg + seg / 2) + 'deg) translateY(-82px)' }}>${s.label}</span>`)}</div>
+      <div class="wheel-hub"></div></div>
+    ${res ? html`<div class="spin-res">${res.pct > 0 ? t('Congratulations! You won ' + res.pct + '% off your next order.', 'অভিনন্দন! পরের অর্ডারে ' + res.pct + '% ছাড় পেয়েছেন।') : t('No discount this time.', 'এবার কোনো ছাড় পাননি।')}</div>` : null}
+    ${msg ? html`<div class="err">${msg}</div>` : null}
+    ${res ? html`<button class="btn" onClick=${onClose}>${t('OK', 'ঠিক আছে')}</button>` : html`<button class="btn" disabled=${spinning} onClick=${spin}>${spinning ? '…' : t('SPIN', 'ঘোরান')}</button>`}
+  </div></div>`;
+}
+
+function FlashTimer({ endsAt, onEnd }) {
+  const end = new Date(endsAt).getTime();
+  const [left, setLeft] = useState(Math.max(0, end - Date.now()));
+  useEffect(() => { const id = setInterval(() => { const l = end - Date.now(); if (l <= 0) { clearInterval(id); setLeft(0); if (onEnd) onEnd(); } else setLeft(l); }, 1000); return () => clearInterval(id); }, [end]);
+  const sec = Math.floor(left / 1000), d = Math.floor(sec / 86400), p2 = (n) => String(n).padStart(2, '0');
+  return html`<span class="ftimer">${d > 0 ? d + 'd ' : ''}${p2(Math.floor(sec % 86400 / 3600))}:${p2(Math.floor(sec % 3600 / 60))}:${p2(sec % 60)}</span>`;
+}
+
 function App() {
   const [lang, setLang] = useState(lsGet('sc_lang', 'EN'));
   const [dark, setDark] = useState(lsGet('sc_dark', false));
   const [tab, setTab] = useState('home');
   const [sel, setSel] = useState(null);
   const [cart, setCart] = useState(lsGet('sc_cart', {}));
-  const [cats, setCats] = useState([]); const [prods, setProds] = useState([]); const [banners, setBanners] = useState([]); const [settings, setSettings] = useState({});
+  const [cats, setCats] = useState([]); const [rawProds, setProds] = useState([]); const [banners, setBanners] = useState([]); const [settings, setSettings] = useState({});
   const [loading, setLoading] = useState(true); const [loadErr, setLoadErr] = useState('');
   const [user, setUser] = useState(null); const [cust, setCust] = useState(null);
   const [q, setQ] = useState(''); const [catF, setCatF] = useState('All');
@@ -192,15 +355,52 @@ function App() {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [galleryIndex, setGalleryIndex] = useState(0);
   const [zoomScale, setZoomScale] = useState(1);
+  const [pan, setPan] = useState({ x: 0, y: 0 });
+  const panStartRef = useRef(null);
   const [bell, setBell] = useState(false); const [msgs, setMsgs] = useState([]); const bellRef = useRef(false);
   const touchStartRef = useRef(null);
   const pinchStartRef = useRef(0);
   const t = (en, bn) => (lang === 'BN' ? bn : en);
   const say = (m) => { setToast(m); setTimeout(() => setToast(''), 2200); };
 
+  // ===== NEW: wishlist state =====
+  const wish = useWishlist(user);
+  // ===== NEW: coupon state =====
+  const [coupon, setCoupon] = useState(null); // {code, discount}
+  const [spinOpen, setSpinOpen] = useState(false);
+  const [spinRec, setSpinRec] = useState(null);
+  const [walletBal, setWalletBal] = useState(0);
+  const loadWallet = useCallback(async () => { if (!user) { setWalletBal(0); return; } const { data } = await sb.rpc('my_referral'); setWalletBal(data && Number(data.balance) > 0 ? Number(data.balance) : 0); }, [user && user.id]);
+  useEffect(() => { loadWallet(); }, [loadWallet]);
+
+  const [nowTs, setNowTs] = useState(Date.now());
+  const flash = useMemo(() => { try { const fv = settings.flash_sale; return typeof fv === 'string' ? JSON.parse(fv) : fv; } catch (e) { return null; } }, [settings.flash_sale]);
+  const flashOn = !!(flash && flash.active && Array.isArray(flash.items) && flash.items.length && new Date(flash.ends_at).getTime() > nowTs);
+  const prods = useMemo(() => !flashOn ? rawProds : rawProds.map((p) => { const it = flash.items.find((x) => String(x.id) === String(p.id)); const sp = it ? Number(it.price) : 0; return sp > 0 && sp < p.price ? { ...p, price: sp, old_price: p.price, flash: true } : p; }), [rawProds, flashOn, flash]);
   useEffect(() => { document.documentElement.dataset.theme = dark ? 'dark' : 'light'; lsSet('sc_dark', dark); }, [dark]);
   useEffect(() => { lsSet('sc_lang', lang); document.documentElement.lang = lang === 'BN' ? 'bn' : 'en'; }, [lang]);
   useEffect(() => { lsSet('sc_cart', cart); }, [cart]);
+
+  // ===== NEW: dynamic SEO per product =====
+  useEffect(() => {
+    const P = sel ? (prods.find((p) => p.id === sel) || null) : null;
+    if (P) {
+      const nm = (lang === 'BN' && P.name_bn) || P.name;
+      document.title = nm + ' — Suncity';
+      const desc = (lang === 'BN' && P.description_bn) || P.description || '';
+      const m = document.querySelector('meta[name="description"]');
+      if (m) m.setAttribute('content', (desc || nm).slice(0, 160));
+      const imgs = [P.image_url].filter(Boolean);
+      const ld = { "@context": "https://schema.org", "@type": "Product", "name": nm, "image": imgs, "description": desc, "sku": String(P.id),
+        "offers": { "@type": "Offer", "url": location.href, "priceCurrency": "BDT", "price": P.price, "availability": P.stock > 0 ? "https://schema.org/InStock" : "https://schema.org/OutOfStock" } };
+      let s = document.getElementById('product-ld');
+      if (!s) { s = document.createElement('script'); s.id = 'product-ld'; s.type = 'application/ld+json'; document.head.appendChild(s); }
+      s.textContent = JSON.stringify(ld);
+    } else {
+      document.title = 'Suncity — বিশ্বস্ত অনলাইন শপ';
+      const s = document.getElementById('product-ld'); if (s) s.remove();
+    }
+  }, [sel, lang, prods]);
 
   async function loadShop() {
     try {
@@ -256,10 +456,19 @@ function App() {
   const sub = lines.reduce((a, l) => a + l.price * l.qty, 0);
   const dc = Number(settings.delivery_charge) || 0, free = Number(settings.free_delivery_over) || 0;
   const fee = dc > 0 && !(free > 0 && sub >= free) ? dc : 0;
+  const discount = coupon && sub >= (coupon.min_order || 0) ? Number(coupon.discount) : 0;
+  let offer = null; try { const ov = settings.spin_offer; offer = typeof ov === 'string' ? JSON.parse(ov) : ov; } catch (e) {}
+  const offerOn = !!(offer && offer.active && Array.isArray(offer.slices) && offer.slices.length >= 2);
+  const offerId = offerOn ? String(offer.id) : '';
+  const loadSpin = useCallback(async () => { if (!user || !offerId) { setSpinRec(null); return; } const { data } = await sb.rpc('my_spin', { p_offer: offerId }); setSpinRec(data || null); }, [user && user.id, offerId]);
+  useEffect(() => { loadSpin(); }, [loadSpin]);
+  const spinPct = spinRec && !spinRec.used ? Number(spinRec.pct) || 0 : 0;
+  const spinDisc = Math.min(Math.round(sub * spinPct / 100), Math.max(0, sub - discount));
+  const walletUse = Math.min(walletBal, Math.max(0, sub - discount - spinDisc));
+  const doSpin = async () => { const { data, error } = await sb.rpc('spin_play', { p_offer: offerId }); if (error) return { error: error.message }; setSpinRec({ pct: data.pct, label: data.label, used: !!data.used }); return data; };
   const add = (p) => { const cur = cart[p.id] || 0; if (cur >= p.stock) return say(t('Cannot add more of this item', 'এর বেশি যোগ করা যাচ্ছে না')); setCart({ ...cart, [p.id]: cur + 1 }); say(t('Added to cart', 'কার্টে যোগ হয়েছে')); };
   const dec = (id) => { const n = (cart[id] || 0) - 1; const c = { ...cart }; if (n <= 0) delete c[id]; else c[id] = n; setCart(c); };
   const pname = (p) => (lang === 'BN' && p.name_bn) || p.name;
-  // Normalize supported product photo fields into one ordered URL list.
   const productImages = (p) => [...new Set([
     ...(Array.isArray(p.images) ? p.images : []),
     ...(Array.isArray(p.image_urls) ? p.image_urls : []),
@@ -268,24 +477,14 @@ function App() {
   ].map((x) => typeof x === 'string' ? x : x && (x.url || x.image_url || x.src))
     .filter((x) => typeof x === 'string' && x.trim()))];
 
-  const hashDone = useRef(false);
-  useEffect(() => {
-    if (hashDone.current || !prods.length) return;
-    hashDone.current = true;
-    const hh = location.hash;
-    if (hh.startsWith('#p=')) { const id = decodeURIComponent(hh.slice(3)); if (byId[id]) { setSel(id); window.scrollTo(0, 0); } }
-  }, [prods.length]);
-  useEffect(() => {
-    try {
-      if (sel) history.replaceState(null, '', '#p=' + encodeURIComponent(sel));
-      else if (hashDone.current && location.hash.startsWith('#p=')) history.replaceState(null, '', location.pathname + location.search);
-    } catch (e) {}
-  }, [sel]);
   const filtered = prods.filter((p) => (catF === 'All' || p.category === catF) && (pname(p) + p.name).toLowerCase().includes(q.toLowerCase()));
   const go = (k) => { setSel(null); setTab(k); window.scrollTo(0, 0); };
 
   const Card = (p, compact = false) => html`<article class=${"card" + (compact ? " compact" : "")} key=${p.id}>
-    <div class="pimg"><button class="image-open" aria-label=${pname(p)} onClick=${() => { setSel(p.id); setGalleryIndex(0); setLightboxOpen(false); window.scrollTo(0, 0); }}><${Img} src=${productImages(p)[0] || p.image_url} fallback=${CAT_ICON[p.category] || '🧴'} /></button>${p.old_price > p.price ? html`<span class="off">-${Math.round((1 - p.price / p.old_price) * 100)}%</span>` : null}${compact ? html`<span class="quick-qty">${(cart[p.id] || 0) > 0 ? html`<button aria-label=${t('Decrease quantity', 'পরিমাণ কমান')} onClick=${() => dec(p.id)}>−</button><b>${cart[p.id]}</b>` : null}<button aria-label=${t('Add to cart', 'কার্টে যোগ করুন')} disabled=${p.stock <= 0 || (cart[p.id] || 0) >= p.stock} onClick=${() => add(p)}>+</button></span>` : null}</div>
+    <div class="pimg">
+      <button class="image-open" aria-label=${pname(p)} onClick=${() => { setSel(p.id); setGalleryIndex(0); setLightboxOpen(false); window.scrollTo(0, 0); }}><${Img} src=${productImages(p)[0] || p.image_url} fallback=${CAT_ICON[p.category] || '🧴'} /></button>
+      <button class=${'wish-btn' + (wish.has(p.id) ? ' on' : '')} aria-label="wishlist" onClick=${async (e) => { e.stopPropagation(); if (!user) { say(t('Sign in to use wishlist', 'উইশলিস্টে রাখতে সাইন ইন করুন')); return; } const ok = await wish.toggle(p.id); if (ok) say(wish.has(p.id) ? t('Removed', 'সরানো হয়েছে') : t('Added to wishlist', 'উইশলিস্টে যোগ হয়েছে')); }}>${wish.has(p.id) ? '♥' : '♡'}</button>
+      ${p.old_price > p.price ? html`<span class="off">-${Math.round((1 - p.price / p.old_price) * 100)}%</span>` : null}${compact ? html`<span class="quick-qty">${(cart[p.id] || 0) > 0 ? html`<button aria-label=${t('Decrease quantity', 'পরিমাণ কমান')} onClick=${() => dec(p.id)}>−</button><b>${cart[p.id]}</b>` : null}<button aria-label=${t('Add to cart', 'কার্টে যোগ করুন')} disabled=${p.stock <= 0 || (cart[p.id] || 0) >= p.stock} onClick=${() => add(p)}>+</button></span>` : null}</div>
     <button class="pb" style="text-align:left;width:100%" onClick=${() => { setSel(p.id); setGalleryIndex(0); setLightboxOpen(false); window.scrollTo(0, 0); }}><div class="pn">${pname(p)}</div>
       <div class="pr">৳${p.price}${p.old_price > p.price ? html`<s>৳${p.old_price}</s>` : null}</div>
       ${p.stock <= 0 ? html`<div class="low">${t('Out of stock', 'স্টক শেষ')}</div>` : null}
@@ -302,31 +501,52 @@ function App() {
     const desc = (lang === 'BN' && P.description_bn) || P.description;
     const gallery = productImages(P);
     const currentImage = gallery[galleryIndex] || gallery[0] || P.image_url;
-    const openLightbox = (i) => { setGalleryIndex(i); setZoomScale(1); setLightboxOpen(true); };
-    const changeGallery = (step) => { setGalleryIndex((i) => (i + step + gallery.length) % gallery.length); setZoomScale(1); };
-    const onGalleryTouchStart = (e) => { if (e.touches.length === 2) { const dx=e.touches[0].clientX-e.touches[1].clientX,dy=e.touches[0].clientY-e.touches[1].clientY; pinchStartRef.current=Math.hypot(dx,dy); } else if (e.touches.length === 1) touchStartRef.current=e.touches[0].clientX; };
-    const onGalleryTouchMove = (e) => { if (e.touches.length === 2 && pinchStartRef.current) { const dx=e.touches[0].clientX-e.touches[1].clientX,dy=e.touches[0].clientY-e.touches[1].clientY; const d=Math.hypot(dx,dy); setZoomScale(Math.max(1,Math.min(4,zoomScale*d/pinchStartRef.current))); pinchStartRef.current=d; } };
-    const onGalleryTouchEnd = (e) => { if (zoomScale <= 1.02 && touchStartRef.current != null && e.changedTouches[0]) { const dx=e.changedTouches[0].clientX-touchStartRef.current; if (Math.abs(dx)>55 && gallery.length>1) changeGallery(dx<0?1:-1); } touchStartRef.current=null; pinchStartRef.current=0; };
-    const shareP = async () => { const url = location.origin + location.pathname + '#p=' + encodeURIComponent(P.id); try { if (navigator.share) { await navigator.share({ title: pname(P), url }); } else { await navigator.clipboard.writeText(url); say(t('Link copied', 'লিংক কপি হয়েছে')); } } catch (e) {} };
+    const resetZoom = () => { setZoomScale(1); setPan({ x: 0, y: 0 }); };
+    const openLightbox = (i) => { setGalleryIndex(i); resetZoom(); setLightboxOpen(true); };
+    const closeLightbox = () => { setLightboxOpen(false); resetZoom(); };
+    const changeGallery = (step) => { setGalleryIndex((i) => (i + step + gallery.length) % gallery.length); resetZoom(); };
+    const clampPan = (x, y, sc) => { const mx = (window.innerWidth * (sc - 1)) / 2, my = (window.innerHeight * (sc - 1)) / 2; return { x: Math.max(-mx, Math.min(mx, x)), y: Math.max(-my, Math.min(my, y)) }; };
+    const onGalleryTouchStart = (e) => {
+      if (e.touches.length === 2) { const dx = e.touches[0].clientX - e.touches[1].clientX, dy = e.touches[0].clientY - e.touches[1].clientY; pinchStartRef.current = Math.hypot(dx, dy); touchStartRef.current = null; panStartRef.current = null; }
+      else if (e.touches.length === 1) { const tt = e.touches[0]; touchStartRef.current = tt.clientX; if (zoomScale > 1.02) panStartRef.current = { x: tt.clientX, y: tt.clientY, ox: pan.x, oy: pan.y }; }
+    };
+    const onGalleryTouchMove = (e) => {
+      if (e.touches.length === 2 && pinchStartRef.current) { const dx = e.touches[0].clientX - e.touches[1].clientX, dy = e.touches[0].clientY - e.touches[1].clientY; const d = Math.hypot(dx, dy); const ns = Math.max(1, Math.min(4, zoomScale * d / pinchStartRef.current)); setZoomScale(ns); setPan((p) => clampPan(p.x, p.y, ns)); pinchStartRef.current = d; }
+      else if (e.touches.length === 1 && panStartRef.current && zoomScale > 1.02) { const tt = e.touches[0], st = panStartRef.current; setPan(clampPan(st.ox + tt.clientX - st.x, st.oy + tt.clientY - st.y, zoomScale)); }
+    };
+    const onGalleryTouchEnd = (e) => {
+      if (zoomScale <= 1.02 && touchStartRef.current != null && e.touches.length === 0 && e.changedTouches[0]) { const dx = e.changedTouches[0].clientX - touchStartRef.current; if (Math.abs(dx) > 55 && gallery.length > 1) changeGallery(dx < 0 ? 1 : -1); }
+      if (zoomScale <= 1.02) setPan({ x: 0, y: 0 });
+      if (e.touches.length === 0) { touchStartRef.current = null; pinchStartRef.current = 0; panStartRef.current = null; }
+    };
+    const onGalleryWheel = (e) => { const ns = Math.max(1, Math.min(4, zoomScale * (e.deltaY < 0 ? 1.15 : 1 / 1.15))); setZoomScale(ns); setPan((p) => ns <= 1.02 ? { x: 0, y: 0 } : clampPan(p.x, p.y, ns)); };
+    const toggleZoom = () => { if (zoomScale > 1) resetZoom(); else setZoomScale(2); };
+    const startDrag = (e) => { if (zoomScale > 1.02) { e.preventDefault(); panStartRef.current = { x: e.clientX, y: e.clientY, ox: pan.x, oy: pan.y }; } };
+    const moveDrag = (e) => { const st = panStartRef.current; if (st && zoomScale > 1.02 && e.buttons === 1) setPan(clampPan(st.ox + e.clientX - st.x, st.oy + e.clientY - st.y, zoomScale)); };
+    const endDrag = () => { panStartRef.current = null; };
     body = html`<div><div class="row between"><button class="back" onClick=${() => setSel(null)}>‹ ${t('Back', 'ফিরে যান')}</button><span class="st s-way">${P.category}</span></div>
-      <div class="pd-top"><div class="pd-img"><button class="big" style="width:100%;padding:0;border:0;cursor:zoom-in" onClick=${() => openLightbox(galleryIndex)}><${Img} src=${currentImage} fallback=${CAT_ICON[P.category] || '🧴'} /></button>
+      <button class="big" style="width:100%;padding:0;border:0;cursor:zoom-in" onClick=${() => openLightbox(galleryIndex)}><${Img} src=${currentImage} fallback=${CAT_ICON[P.category] || '🧴'} /></button>
       ${gallery.length > 1 ? html`<div class="gallery-thumbs">${gallery.map((src,i) => html`<button class=${'gallery-thumb'+(i===galleryIndex?' active':'')} aria-label=${'Image '+(i+1)} onClick=${() => setGalleryIndex(i)}><img src=${src} loading="lazy" alt="" /></button>`)}</div>` : null}
-      ${lightboxOpen ? html`<div class="lightbox" onTouchStart=${onGalleryTouchStart} onTouchMove=${onGalleryTouchMove} onTouchEnd=${onGalleryTouchEnd}>
-        <button class="lightbox-close" aria-label="Close" onClick=${() => {setLightboxOpen(false);setZoomScale(1)}}>×</button>
+      ${lightboxOpen ? html`<div class="lightbox" onTouchStart=${onGalleryTouchStart} onTouchMove=${onGalleryTouchMove} onTouchEnd=${onGalleryTouchEnd} onWheel=${onGalleryWheel}>
+        <button class="lightbox-close" aria-label="Close" onClick=${closeLightbox}>×</button>
         <div class="lightbox-count">${galleryIndex+1} / ${gallery.length}</div>
         ${gallery.length>1 ? html`<button class="lightbox-arrow prev" onClick=${() => changeGallery(-1)}>‹</button><button class="lightbox-arrow next" onClick=${() => changeGallery(1)}>›</button>` : null}
-        <img src=${currentImage} alt=${pname(P)} style=${{transform:'scale('+zoomScale+')'}} onDoubleClick=${() => setZoomScale(zoomScale>1?1:2)} />
+        <div class="lightbox-img-wrap" onMouseMove=${moveDrag} onMouseUp=${endDrag} onMouseLeave=${endDrag}>
+          <img src=${currentImage} alt=${pname(P)} draggable=${false} style=${{transform:'translate('+pan.x+'px,'+pan.y+'px) scale('+zoomScale+')', cursor: zoomScale>1?'grab':'zoom-in'}} onMouseDown=${startDrag} onDoubleClick=${toggleZoom} />
+        </div>
+        ${gallery.length>1 ? html`<div class="lightbox-thumbs">${gallery.map((src,i) => html`<img key=${i} src=${src} class=${i===galleryIndex?'active':''} alt="" onClick=${() => { setGalleryIndex(i); resetZoom(); }} />`)}</div>` : null}
       </div>` : null}
-      </div><div class="pd-info"><h1 style="font-size:22px;margin:14px 0 4px">${pname(P)}</h1>
+      <h1 style="font-size:22px;margin:14px 0 4px">${pname(P)}</h1>
       <div style="font-size:28px;font-weight:800">৳${P.price} ${P.old_price > P.price ? html`<s class="muted" style="font-size:15px;font-weight:400">৳${P.old_price}</s>` : null}</div>
       ${P.stock <= 0 ? html`<p class="muted">${t('Out of stock', 'স্টক শেষ')}</p>` : null}
       <button class="btn" disabled=${P.stock <= 0} onClick=${() => add(P)}>${t('Add to cart', 'কার্টে যোগ করুন')} • ৳${P.price}${inCart ? ' (' + inCart + ')' : ''}</button>
-      <button class="btn alt" style="margin-top:8px" onClick=${shareP}>${t('Share this product', 'শেয়ার করুন')}</button></div></div>
-      ${sims.length ? html`<h3 class="sec">${t('Similar products', 'একই ধরনের পণ্য')}</h3><div class="sims">${sims.map((x) => { const d = Math.round(Math.abs(x.price - P.price) / P.price * 100); const cheaper = x.price < P.price; return html`<button class="sim" key=${x.id} onClick=${() => { setSel(x.id); setGalleryIndex(0); setLightboxOpen(false); window.scrollTo(0, 0); }}>
+      ${sims.length ? html`<h3 class="sec">${t('Similar products', 'একই ধরনের পণ্য')}</h3>${sims.map((x) => { const d = Math.round(Math.abs(x.price - P.price) / P.price * 100); const cheaper = x.price < P.price; return html`<button class="sim" key=${x.id} onClick=${() => { setSel(x.id); setGalleryIndex(0); setLightboxOpen(false); window.scrollTo(0, 0); }}>
         <span class="th"><${Img} src=${x.image_url} fallback=${CAT_ICON[x.category] || '🧴'} /></span>
         <span class="nm"><b>${pname(x)}</b>${x.stock <= 0 ? html`<span class="low">${t('Out of stock', 'স্টক শেষ')}</span>` : null}</span>
-        <span class="pc"><b>৳${x.price}</b>${x.old_price > x.price ? html`<s>৳${x.old_price}</s>` : null}${d > 0 ? html`<span class=${cheaper ? 'tg g' : 'tg r'}>${cheaper ? t('Save ' + d + '%', d + '% সাশ্রয়') : t(d + '% Costlier', d + '% বেশি দাম')}</span>` : null}</span></button>`; })}</div>` : null}
-      ${desc ? html`<h3 class="sec">${t('Description', 'বিবরণ')}</h3><div class="box" style="white-space:pre-wrap;font-size:14px;line-height:1.55">${desc}</div>` : null}</div>`;
+        <span class="pc"><b>৳${x.price}</b>${x.old_price > x.price ? html`<s>৳${x.old_price}</s>` : null}${d > 0 ? html`<span class=${cheaper ? 'tg g' : 'tg r'}>${cheaper ? t('Save ' + d + '%', d + '% সাশ্রয়') : t(d + '% Costlier', d + '% বেশি দাম')}</span>` : null}</span></button>`; })}` : null}
+      ${desc ? html`<h3 class="sec">${t('Description', 'বিবরণ')}</h3><div class="box" style="white-space:pre-wrap;font-size:14px;line-height:1.55">${desc}</div>` : null}
+      <${ReviewSection} t=${t} productId=${P.id} user=${user} />
+      </div>`;
   } else if (tab === 'home') {
     const b = banners[bi % Math.max(banners.length, 1)];
     body = html`<div>
@@ -336,8 +556,9 @@ function App() {
           <h2>${(lang === 'BN' && b.title_bn) || b.title}</h2>${(b.subtitle || b.subtitle_bn) ? html`<p>${(lang === 'BN' && b.subtitle_bn) || b.subtitle}</p>` : null}
           ${(b.button_text || b.button_bn) ? html`<button class="bt" onClick=${() => { setCatF('All'); go('categories'); }}>${(lang === 'BN' && b.button_bn) || b.button_text}</button>` : null}</div>`}
         ${banners.length > 1 ? html`<div class="dots">${banners.map((_, i) => html`<i key=${i} class=${i === bi % banners.length ? 'on' : ''}></i>`)}</div>` : null}</div>` : null}
-      <h3 class="sec">${t('Categories', 'ক্যাটাগরি')}</h3>
-      <div class="cats">${cats.map(CatBubble)}</div>
+      ${!q && flashOn && prods.some((p) => p.flash && p.stock > 0) ? html`<section><h3 class="sec"><span>⚡ ${(lang === 'BN' && flash.title_bn) || flash.title || 'Flash Sale'}<${FlashTimer} endsAt=${flash.ends_at} onEnd=${() => setNowTs(Date.now())} /></span></h3><div class="product-row">${prods.filter((p) => p.flash && p.stock > 0).map((p) => Card(p, true))}</div></section>` : null}
+      <div class="catrow">${offerOn ? html`<button class="cat" key="spin" onClick=${() => { if (!user) { say(t('Sign in to spin', 'ঘোরাতে সাইন ইন করুন')); go('account'); return; } setSpinOpen(true); }}>
+        <div class="c" style=${{ background: 'linear-gradient(135deg,#FF6A00,#E5484D)', color: '#fff', opacity: spinRec && !(spinRec.pct > 0 && !spinRec.used) ? 0.6 : 1 }}>${spinRec && spinRec.pct > 0 && !spinRec.used ? html`<b style="font-size:17px">${spinRec.pct}%</b>` : '🎡'}</div>${t('Spin & Win', 'স্পিন & উইন')}</button>` : null}<div class="cats">${cats.map(CatBubble)}</div></div>
       ${q ? html`<h3 class="sec">${t('Results', 'ফলাফল')} • ${filtered.length}</h3><div class="grid">${filtered.map((p) => Card(p))}</div>` : cats.map((c) => { const items = prods.filter((p) => p.category === c.name); return items.length ? html`<section key=${c.id}><h3 class="sec">${(lang === 'BN' && c.name_bn) || c.name}<button onClick=${() => { setCatF(c.name); go('categories'); }}>${t('See All', 'সব দেখুন')} ›</button></h3><div class="product-row">${items.map((p) => Card(p, true))}</div></section>` : null })}
       ${!loading && prods.length === 0 && !loadErr ? html`<p class="muted" style="text-align:center">${t('No products yet.', 'এখনও কোনো পণ্য নেই।')}</p>` : null}</div>`;
   } else if (tab === 'categories') {
@@ -347,39 +568,55 @@ function App() {
       <div class="grid">${filtered.map(Card)}</div>
       ${filtered.length === 0 ? html`<p class="muted" style="text-align:center">${t('No products here yet.', 'এখানে এখনও পণ্য নেই।')}</p>` : null}</div>`;
   } else if (tab === 'cart') {
-    body = html`<div class="narrow"><${CartView} t=${t} lines=${lines} sub=${sub} fee=${fee} add=${add} dec=${dec} pname=${pname} cust=${cust} user=${user} go=${go} clear=${() => setCart({})} reload=${loadShop} /></div>`;
+    body = html`<${CartView} t=${t} lines=${lines} sub=${sub} fee=${fee} add=${add} dec=${dec} pname=${pname} cust=${cust} user=${user} go=${go} clear=${() => setCart({})} reload=${loadShop} coupon=${coupon} setCoupon=${setCoupon} discount=${discount} spinDisc=${spinDisc} spinPct=${spinPct} walletUse=${walletUse} onOrdered=${() => { loadSpin(); loadWallet(); }} />`;
   } else {
-    body = html`<div class="narrow"><${AccountView} t=${t} lang=${lang} setLang=${setLang} user=${user} cust=${cust} reloadCust=${() => loadCust(user)} settings=${settings} say=${say} pname=${pname} /></div>`;
+    body = html`<${AccountView} t=${t} lang=${lang} setLang=${setLang} user=${user} cust=${cust} reloadCust=${() => loadCust(user)} settings=${settings} say=${say} pname=${pname} wish=${wish} setSel=${(id) => { setSel(id); setGalleryIndex(0); setLightboxOpen(false); window.scrollTo(0, 0); }} />`;
   }
 
   const tabs = [['home', '⌂', t('Home', 'হোম')], ['categories', '▦', t('Categories', 'ক্যাটাগরি')], ['cart', '🛒', t('Cart', 'কার্ট')], ['account', '👤', t('Account', 'অ্যাকাউন্ট')]];
   const wa = normPhone(settings.whatsapp || '01577172585');
   return html`<div class="app">
-    <header><div class="hwrap"><span class="logo">sun<b>city</b></span>
-      <label class="search">🔍<input value=${q} onInput=${(e) => { setQ(e.target.value); if (tab !== 'home') setTab('home'); setSel(null); }} placeholder=${t('Search products', 'পণ্য খুঁজুন')} /></label>
-      <div class="topnav">${tabs.map(([k, ic, l]) => html`<button key=${k} class=${!sel && tab === k ? 'on' : ''} onClick=${() => go(k)}>${l}${k === 'cart' && count > 0 ? html`<span class="badge">${count}</span>` : null}</button>`)}</div>
-      <div class="row hact"><button class="pill bell" onClick=${openBell} aria-label=${t('Messages', 'বার্তা')}><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>${unread > 0 ? html`<span class="bbadge">${unread > 9 ? '9+' : unread}</span>` : null}</button>
-        <button class="pill" onClick=${() => setDark(!dark)} aria-label="theme">${dark ? '☀' : '☾'}</button></div></div></header>
-    <main>${loading ? html`<p class="muted" style="text-align:center;margin-top:40px">${t('Loading…', 'লোড হচ্ছে…')}</p>` : loadErr ? html`<div class="err">${loadErr} <button onClick=${loadShop} style="text-decoration:underline">${t('Retry', 'আবার চেষ্টা')}</button></div>` : body}</main>
+    <header><div class="row between"><span class="logo">sun<b>city</b></span>
+      <div class="row"><button class="pill bell" onClick=${openBell} aria-label=${t('Messages', 'বার্তা')}><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>${unread > 0 ? html`<span class="bbadge">${unread > 9 ? '9+' : unread}</span>` : null}</button>
+        <button class="pill" onClick=${() => setDark(!dark)} aria-label="theme">${dark ? '☀' : '☾'}</button></div></div>
+      <label class="search">🔍<input value=${q} onInput=${(e) => { setQ(e.target.value); if (tab !== 'home') setTab('home'); setSel(null); }} placeholder=${t('Search products', 'পণ্য খুঁজুন')} /></label></header>
+    <main>${loading ? html`<div><div class="sk" style="height:140px;border-radius:22px"></div><div class="row" style="margin:18px 0;gap:12px">${[1, 2, 3, 4].map((i) => html`<div class="sk" key=${i} style="width:68px;height:68px;border-radius:18px;flex:none"></div>`)}</div><div class="grid">${[1, 2, 3, 4].map((i) => html`<div class="sk" key=${i} style="height:200px"></div>`)}</div></div>` : loadErr ? html`<div class="err">${loadErr} <button onClick=${loadShop} style="text-decoration:underline">${t('Retry', 'আবার চেষ্টা')}</button></div>` : body}</main>
     <a class="wa" href=${'https://wa.me/88' + wa} target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
     <nav><div>${tabs.map(([k, ic, l]) => html`<button key=${k} class=${!sel && tab === k ? 'on' : ''} onClick=${() => go(k)}><span class="i">${ic}</span>${l}${k === 'cart' && count > 0 ? html`<span class="badge">${count}</span>` : null}</button>`)}</div></nav>
     ${bell ? html`<div class="notif" onClick=${closeBell}><div class="npanel" onClick=${(e) => e.stopPropagation()}><div class="row between"><b style="font-size:17px">${t('Messages', 'বার্তা')}</b><button class="back" onClick=${closeBell}>${t('Close', 'বন্ধ')}</button></div>
       ${msgs.length === 0 ? html`<p class="muted" style="text-align:center">${t('No messages yet.', 'এখনও কোনো বার্তা নেই।')}</p>` : msgs.map((m) => html`<div class=${'nmsg' + (m.unread ? ' new' : '')} key=${m.id}>${m.title ? html`<b>${m.title}</b>` : null}<div style="white-space:pre-wrap">${m.body}</div><div class="muted">${fmtDate(m.created_at)}</div></div>`)}</div></div>` : null}
+    ${spinOpen && offerOn ? html`<${SpinModal} t=${t} lang=${lang} offer=${offer} prior=${spinRec ? { pct: spinRec.pct, label: spinRec.label } : null} onClose=${() => setSpinOpen(false)} onSpin=${doSpin} />` : null}
     ${toast ? html`<div class="toast">${toast}</div>` : null}</div>`;
 }
 
-function CartView({ t, lines, sub, fee, add, dec, pname, cust, user, go, clear, reload }) {
+function CartView({ t, lines, sub, fee, add, dec, pname, cust, user, go, clear, reload, coupon, setCoupon, discount, spinDisc, spinPct, walletUse, onOrdered }) {
   const [step, setStep] = useState('cart');
   const [name, setName] = useState(''); const [phone, setPhone] = useState(''); const [addr, setAddr] = useState('');
   const [busy, setBusy] = useState(false); const [err, setErr] = useState(''); const [done, setDone] = useState(null);
+  const [ccode, setCcode] = useState(''); const [cmsg, setCmsg] = useState(''); const [cbusy, setCbusy] = useState(false);
   useEffect(() => { if (cust) { setName((v) => v || cust.name || ''); setPhone((v) => v || cust.phone || ''); setAddr((v) => v || cust.address || ''); } }, [cust]);
+
+  async function applyCoupon() {
+    setCmsg(''); setCbusy(true);
+    const { data, error } = await sb.rpc('check_coupon', { p_code: ccode.trim(), p_subtotal: sub });
+    setCbusy(false);
+    if (error) { setCmsg(error.message); return; }
+    const r = Array.isArray(data) ? data[0] : data;
+    if (!r || !r.ok) { setCmsg(r ? r.message : t('Invalid coupon', 'কুপন ভুল')); setCoupon(null); return; }
+    setCoupon({ code: ccode.trim().toUpperCase(), discount: r.discount, min_order: 0 });
+    setCmsg(r.message || 'OK');
+  }
+  async function removeCoupon() { setCoupon(null); setCcode(''); setCmsg(''); }
+
   async function place() {
     setErr(''); setBusy(true);
     const { data, error } = await sb.rpc('place_order', { p_name: name, p_phone: phone, p_address: addr, p_items: lines.map((l) => ({ id: l.id, qty: l.qty })) });
     setBusy(false);
     if (error) return setErr(error.message);
-    setDone(data); clear(); reload();
+    if (coupon) { try { await sb.rpc('use_coupon', { p_code: coupon.code }); } catch (e) {} setCoupon(null); }
+    setDone(data); clear(); reload(); if (onOrdered) onOrdered();
   }
+  const total = sub + fee - (discount || 0) - (spinDisc || 0) - (walletUse || 0);
   if (done) return html`<div class="box" style="text-align:center"><div style="font-size:48px">🎉</div><h2>${t('Order placed!', 'অর্ডার হয়েছে!')}</h2>
     <p>${t('Your order number', 'আপনার অর্ডার নম্বর')}: <b>#${done}</b></p><p class="muted">${t('We will confirm it soon. Pay cash when it arrives.', 'শীঘ্রই কনফার্ম করব। পণ্য হাতে পেয়ে টাকা দিন।')}</p>
     <button class="btn" onClick=${() => go(user ? 'account' : 'home')}>${user ? t('See my orders', 'আমার অর্ডার দেখুন') : t('Continue shopping', 'কেনাকাটা চালিয়ে যান')}</button></div>`;
@@ -387,8 +624,14 @@ function CartView({ t, lines, sub, fee, add, dec, pname, cust, user, go, clear, 
   return html`<div><h1 style="font-size:22px;margin:0 0 10px">${t('My Cart', 'আমার কার্ট')}</h1>
     ${lines.map((l) => html`<div class="box row" key=${l.id}><div style="flex:1;min-width:0"><div class="pn" style="min-height:0">${pname(l)}</div><b>৳${l.price * l.qty}</b></div>
       <span class="qty"><button onClick=${() => dec(l.id)}>−</button>${l.qty}<button onClick=${() => add(l)}>+</button></span></div>`)}
-    <div class="box"><div class="line"><span>${t('Subtotal', 'সাবটোটাল')}</span><b>৳${sub}</b></div><div class="line"><span>${t('Delivery', 'ডেলিভারি')}</span><b>${fee ? '৳' + fee : t('Free', 'ফ্রি')}</b></div>
-      <div class="line tot"><span>${t('Total', 'মোট')}</span><span>৳${sub + fee}</span></div></div>
+    <div class="box"><div class="line"><span>${t('Subtotal', 'সাবটোটাল')}</span><b>৳${sub}</b></div>
+      <div class="coupon-box"><input class="in" placeholder=${t('Coupon code', 'কুপন কোড')} value=${ccode} onInput=${(e) => setCcode(e.target.value)} /><button disabled=${cbusy} onClick=${applyCoupon}>${cbusy ? '…' : t('Apply', 'প্রয়োগ')}</button></div>
+      ${cmsg ? html`<div class=${coupon ? 'coupon-ok' : 'err'}>${cmsg}${coupon ? html` <button onClick=${removeCoupon} style="text-decoration:underline">${t('Remove', 'সরান')}</button>` : null}</div>` : null}
+      ${coupon && discount ? html`<div class="line" style="color:var(--green)"><span>${t('Coupon discount', 'কুপন ছাড়')}</span><b>-৳${discount}</b></div>` : null}
+      ${spinDisc > 0 ? html`<div class="line" style="color:var(--green)"><span>${t('Spin prize (' + spinPct + '%)', 'স্পিন ছাড় (' + spinPct + '%)')}</span><b>-৳${spinDisc}</b></div>` : null}
+      ${walletUse > 0 ? html`<div class="line" style="color:var(--green)"><span>${t('Wallet (refer bonus)', 'ওয়ালেট (রেফার বোনাস)')}</span><b>-৳${walletUse}</b></div>` : null}
+      <div class="line"><span>${t('Delivery', 'ডেলিভারি')}</span><b>${fee ? '৳' + fee : t('Free', 'ফ্রি')}</b></div>
+      <div class="line tot"><span>${t('Total', 'মোট')}</span><span>৳${total}</span></div></div>
     ${step === 'cart' ? html`<button class="btn" onClick=${() => setStep('form')}>${t('Checkout', 'চেকআউট')}</button>` : html`<div class="box"><b>${t('Delivery details', 'ডেলিভারির তথ্য')}</b>
       <input class="in" placeholder=${t('Full name', 'পুরো নাম')} value=${name} onInput=${(e) => setName(e.target.value)} />
       <input class="in" placeholder="01XXXXXXXXX" inputMode="tel" value=${phone} onInput=${(e) => setPhone(e.target.value)} />
@@ -398,13 +641,14 @@ function CartView({ t, lines, sub, fee, add, dec, pname, cust, user, go, clear, 
       <button class="btn" style="margin-top:10px" disabled=${busy} onClick=${place}>${busy ? '…' : t('Place order • Cash on delivery', 'অর্ডার করুন • ক্যাশ অন ডেলিভারি')}</button></div>`}</div>`;
 }
 
-function AccountView({ t, lang, setLang, user, cust, reloadCust, settings, say, pname }) {
+function AccountView({ t, lang, setLang, user, cust, reloadCust, settings, say, pname, wish, setSel }) {
   const [mode, setMode] = useState('signup');
   const [f, setF] = useState({ name: '', phone: '', pw: '', ref: '' });
   const [busy, setBusy] = useState(false); const [err, setErr] = useState('');
   const [orders, setOrders] = useState(null); const [chip, setChip] = useState('all'); const [open, setOpen] = useState({});
   const [refd, setRefd] = useState(null); const [refErr, setRefErr] = useState(''); const [ordErr, setOrdErr] = useState('');
   const [edit, setEdit] = useState(false); const [pf, setPf] = useState({ name: '', address: '' });
+  const [wprods, setWprods] = useState([]);
   const set = (k) => (e) => setF({ ...f, [k]: e.target.value });
 
   function loadRef() {
@@ -420,6 +664,13 @@ function AccountView({ t, lang, setLang, user, cust, reloadCust, settings, say, 
     sb.from('orders').select('*').eq('user_id', user.id).order('created_at', { ascending: false }).limit(50).then(({ data, error }) => { if (error) setOrdErr(error.message); setOrders(data || []); });
     loadRef();
   }, [user && user.id]);
+
+  // ===== NEW: load wishlist products =====
+  useEffect(() => {
+    if (!user || !wish || !wish.list || !wish.list.length) { setWprods([]); return; }
+    sb.from('products').select('*').in('id', wish.list).then(({ data }) => setWprods(data || []));
+  }, [user && user.id, wish && wish.list && wish.list.join(',')]);
+
   useEffect(() => { if (cust) setPf({ name: cust.name || '', address: cust.address || '' }); }, [cust]);
 
   async function submit() {
@@ -457,6 +708,14 @@ function AccountView({ t, lang, setLang, user, cust, reloadCust, settings, say, 
     <div class="box" style="background:var(--navy);color:#fff"><div class="row between"><div><b style="font-size:17px">${cust ? cust.name : t('Customer', 'গ্রাহক')}</b><div style="font-size:12px;opacity:.7">${cust ? cust.phone : ''}</div></div>
       <button class="pill" onClick=${() => setEdit(!edit)}>${t('Edit', 'সম্পাদনা')}</button></div>
       ${edit ? html`<div><input class="in" value=${pf.name} onInput=${(e) => setPf({ ...pf, name: e.target.value })} /><textarea class="in" rows="2" placeholder=${t('Address', 'ঠিকানা')} value=${pf.address} onInput=${(e) => setPf({ ...pf, address: e.target.value })}></textarea><button class="btn" style="margin-top:8px" onClick=${saveProfile}>${t('Save', 'সংরক্ষণ')}</button></div>` : null}</div>
+
+    ${wprods.length ? html`<h3 class="sec" style="margin-top:6px">${t('My wishlist', 'আমার উইশলিস্ট')}</h3><div class="box">
+      ${wprods.map((p) => html`<div class="it" key=${p.id} style="align-items:center">
+        <span style="width:40px;height:40px;border-radius:8px;background:#fff;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;overflow:hidden"><${Img} src=${p.image_url} fallback=${CAT_ICON[p.category] || '🧴'} /></span>
+        <span style="flex:1;cursor:pointer" onClick=${() => setSel && setSel(p.id)}>${pname(p)} <span class="muted">৳${p.price}</span></span>
+        <button aria-label="remove" onClick=${async () => { await wish.toggle(p.id); say(t('Removed', 'সরানো হয়েছে')); }}>♥</button></div>`)}
+      </div>` : null}
+
     ${refOn ? html`<h3 class="sec" style="margin-top:6px">${t('Refer & Earn', 'রেফার করে আয় করুন')}</h3><div class="box">
       ${refd ? html`<div class="row between"><span>${t('Your code', 'আপনার কোড')}</span><span class="row"><b style="background:var(--soft);color:var(--orange);padding:4px 10px;border-radius:8px;font-size:16px">${refd.code}</b><button onClick=${() => copy(refd.code)} aria-label="copy">⧉</button></span></div>
         <div class="line"><span>${t('Friends joined', 'যোগ দিয়েছে')}</span><b>${refd.joined}</b></div><div class="line"><span>${t('Qualified', 'যোগ্য হয়েছে')}</span><b>${refd.qualified}</b></div><div class="line"><span>${t('Wallet', 'ওয়ালেট')}</span><b>৳${refd.balance}</b></div>
@@ -481,126 +740,13 @@ function AccountView({ t, lang, setLang, user, cust, reloadCust, settings, say, 
     <button class="btn alt" style="color:var(--red)" onClick=${async () => { await sb.auth.signOut(); setOrders(null); }}>${t('Logout', 'লগআউট')}</button></div>`;
 }
 
-function InstallBox({ t }) {
-  const [, tick] = useState(0);
-  useEffect(() => { const f = () => tick((n) => n + 1); window.addEventListener('bip', f); return () => window.removeEventListener('bip', f); }, []);
-  const standalone = (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches) || window.navigator.standalone || window.Capacitor;
-  if (standalone) return null;
-  const ios = /iphone|ipad|ipod/i.test(navigator.userAgent);
-  const install = async () => { const e = window.__bip; if (!e) return; e.prompt(); try { await e.userChoice; } catch (x) {} window.__bip = null; tick((n) => n + 1); };
-  return html`<div class="box"><div class="installbox"><b>📲 ${t('Install the Suncity app', 'সানসিটি অ্যাপ ইনস্টল করুন')}</b>${window.__bip ? html`<button class="chip on" onClick=${install}>${t('Install', 'ইনস্টল')}</button>` : null}</div>
-    ${window.__bip ? null : html`<p class="muted" style="margin:8px 0 0">${ios ? t('Tap the Share button, then "Add to Home Screen".', 'শেয়ার বাটনে চাপুন, তারপর "Add to Home Screen" বেছে নিন।') : t('Open the browser menu and choose "Install app" or "Add to Home screen".', 'ব্রাউজারের মেনু খুলে "Install app" বা "Add to Home screen" বেছে নিন।')}</p>`}</div>`;
-}
-
 function Settings({ t, lang, setLang, wa }) {
-  return html`<div><${InstallBox} t=${t} /><h3 class="sec">${t('Contact us', 'যোগাযোগ')}</h3><div class="box"><a class="line" style="text-decoration:none;color:inherit" href=${'tel:' + wa}><span>📞 ${t('Call to order', 'কল করে অর্ডার')}</span><b>${wa}</b></a>
+  return html`<div><h3 class="sec">${t('Contact us', 'যোগাযোগ')}</h3><div class="box"><a class="line" style="text-decoration:none;color:inherit" href=${'tel:' + wa}><span>📞 ${t('Call to order', 'কল করে অর্ডার')}</span><b>${wa}</b></a>
     <a class="line" style="text-decoration:none;color:inherit" href=${'https://wa.me/88' + wa} target="_blank" rel="noopener"><span>💬 WhatsApp</span><b>${t('Chat', 'চ্যাট')}</b></a></div>
     <div class="box row between"><span>🌐 ${t('Language', 'ভাষা')}</span><div class="seg"><button class=${lang === 'EN' ? 'on' : ''} onClick=${() => setLang('EN')}>English</button><button class=${lang === 'BN' ? 'on' : ''} onClick=${() => setLang('BN')}>বাংলা</button></div></div></div>`;
 }
 
 ReactDOM.createRoot(document.getElementById('root')).render(html`<${App} />`);
-if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost')) {
-  window.addEventListener('load', () => { navigator.serviceWorker.register('sw.js').catch(() => {}); });
-}
-</script>
- <script>
-/* Suncity install strip: shows a small "Get the app" bar on phones */
-(function () {
-  var KEY = 'sc_install_hide';
-  function hiddenForever() { try { return JSON.parse(localStorage.getItem(KEY)) === true; } catch (e) { return false; } }
-  function standalone() { return (window.matchMedia && matchMedia('(display-mode: standalone)').matches) || navigator.standalone || !!window.Capacitor; }
-  if (hiddenForever() || standalone()) return;
-
-  var ua = navigator.userAgent;
-  var ios = /iphone|ipad|ipod/i.test(ua);
-  var inApp = /FBAN|FBAV|FB_IAB|Instagram|Messenger/i.test(ua);
-  function bn() { try { return JSON.parse(localStorage.getItem('sc_lang')) === 'BN'; } catch (e) { return false; } }
-  function T(en, b) { return bn() ? b : en; }
-
-  var css = document.createElement('style');
-  css.textContent =
-    '.istrip{display:flex;align-items:center;gap:10px;background:var(--soft,#FFF0E4);color:var(--ink,#17233A);border-bottom:1px solid var(--line,#E8EAF0);padding:9px 14px;font-size:13px;line-height:1.3;font-family:inherit}' +
-    '.istrip img{width:34px;height:34px;border-radius:9px;flex:none}' +
-    '.istrip .itx{flex:1;min-width:0}.istrip .itx b{display:block;font-size:13px}.istrip .itx span{color:var(--muted,#6E7B8E);font-size:12px}' +
-    '.istrip .ibtn{background:var(--orange,#FF6A00);color:#fff;border:0;border-radius:99px;padding:7px 14px;font-weight:700;font-size:12px;white-space:nowrap;cursor:pointer;font-family:inherit}' +
-    '.istrip .ix{background:none;border:0;font-size:20px;line-height:1;color:var(--muted,#6E7B8E);padding:2px 4px;cursor:pointer}' +
-    '.ist-ov{position:fixed;inset:0;z-index:95;background:rgba(0,0,0,.5);display:flex;align-items:flex-start;justify-content:center;padding:70px 12px 12px}' +
-    '.ist-pn{width:100%;max-width:406px;max-height:78vh;overflow:auto;background:var(--card,#fff);color:var(--ink,#17233A);border:1px solid var(--line,#E8EAF0);border-radius:18px;padding:14px;display:flex;flex-direction:column;gap:10px;font-size:14px}' +
-    '.ist-pn .hd{display:flex;align-items:center;justify-content:space-between}.ist-pn .hd b{font-size:17px}' +
-    '.ist-pn .cl{background:var(--chip,#F1F4F8);color:inherit;border:0;border-radius:99px;padding:7px 14px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit}' +
-    '.ist-pn .wn{background:#FFE9EA;color:#9B1C20;border-radius:10px;padding:8px 10px;font-size:12px}' +
-    '.ist-pn ol{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:8px}' +
-    '@media (min-width:900px){.istrip{display:none}}';
-  document.head.appendChild(css);
-
-  var strip = document.createElement('div');
-  strip.className = 'istrip';
-
-  function remove() { if (strip.parentNode) strip.parentNode.removeChild(strip); }
-  function hideForever() { try { localStorage.setItem(KEY, 'true'); } catch (e) {} remove(); }
-
-  function openHow() {
-    var steps = ios
-      ? [T('Open this page in Safari.', 'এই পেজটা Safari তে খুলুন।'),
-         T('Tap the Share button (a square with an arrow) at the bottom.', 'নিচের শেয়ার বাটনে (তীর সহ চার কোনা) চাপুন।'),
-         T('Scroll down and tap "Add to Home Screen".', 'নিচে স্ক্রল করে "Add to Home Screen" এ চাপুন।'),
-         T('Tap "Add". The Suncity icon appears on your home screen.', '"Add" চাপুন। হোম স্ক্রিনে সানসিটি আইকন চলে আসবে।')]
-      : [T('Open this page in Chrome.', 'এই পেজটা Chrome এ খুলুন।'),
-         T('Tap the ⋮ menu at the top right.', 'ওপরে ডানের ⋮ মেনুতে চাপুন।'),
-         T('Tap "Install app" or "Add to Home screen".', '"Install app" বা "Add to Home screen" এ চাপুন।'),
-         T('Tap "Install". The Suncity icon appears on your home screen.', '"Install" চাপুন। হোম স্ক্রিনে সানসিটি আইকন চলে আসবে।')];
-    var ov = document.createElement('div');
-    ov.className = 'ist-ov';
-    var html = '<div class="ist-pn"><div class="hd"><b></b><button class="cl"></button></div>';
-    if (inApp) html += '<div class="wn"></div>';
-    html += '<ol>' + steps.map(function () { return '<li></li>'; }).join('') + '</ol></div>';
-    ov.innerHTML = html;
-    ov.querySelector('b').textContent = T('Install Suncity', 'সানসিটি ইনস্টল করুন');
-    ov.querySelector('.cl').textContent = T('Close', 'বন্ধ');
-    if (inApp) ov.querySelector('.wn').textContent = T('You are inside the Facebook / Messenger browser. Tap the ⋮ or ⋯ menu and choose "Open in browser" first.', 'আপনি ফেসবুক/মেসেঞ্জারের ব্রাউজারে আছেন। আগে ⋮ বা ⋯ মেনু চেপে "Open in browser" বেছে নিন।');
-    var lis = ov.querySelectorAll('li');
-    for (var i = 0; i < lis.length; i++) lis[i].textContent = steps[i];
-    function close() { if (ov.parentNode) ov.parentNode.removeChild(ov); }
-    ov.addEventListener('click', function (e) { if (e.target === ov) close(); });
-    ov.querySelector('.cl').addEventListener('click', close);
-    document.body.appendChild(ov);
-  }
-
-  function install() {
-    var e = window.__bip;
-    if (!e) { openHow(); return; }
-    e.prompt();
-    Promise.resolve(e.userChoice).catch(function () {}).then(function () { window.__bip = null; render(); });
-  }
-
-  var lastLang = null;
-  function render() {
-    lastLang = bn();
-    var ready = !!window.__bip;
-    strip.innerHTML = '<img src="icon-192.png" alt=""><div class="itx"><b></b><span></span></div><button class="ibtn"></button><button class="ix" aria-label="Close">×</button>';
-    strip.querySelector('b').textContent = T('Get the Suncity app', 'সানসিটি অ্যাপ নিন');
-    strip.querySelector('span').textContent = T('Opens full screen from your home screen', 'হোম স্ক্রিন থেকে ফুল স্ক্রিনে খোলে');
-    var btn = strip.querySelector('.ibtn');
-    btn.textContent = ready ? T('Install', 'ইনস্টল') : T('How?', 'কীভাবে?');
-    btn.addEventListener('click', ready ? install : openHow);
-    strip.querySelector('.ix').addEventListener('click', hideForever);
-  }
-
-  window.addEventListener('bip', render);
-  window.addEventListener('appinstalled', hideForever);
-
-  function mount() {
-    var h = document.querySelector('header');
-    if (!h) return false;
-    if (strip.parentNode !== h.parentNode || strip.previousElementSibling !== h) h.insertAdjacentElement('afterend', strip);
-    return true;
-  }
-  render();
-  var tries = 0;
-  var iv = setInterval(function () { if (mount() || ++tries > 80) clearInterval(iv); }, 250);
-  // keep the language of the strip in step with the app language
-  setInterval(function () { if (bn() !== lastLang && strip.parentNode) render(); }, 1000);
-})();
 </script>
 </body>
 </html>
